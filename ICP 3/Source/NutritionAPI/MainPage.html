@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html ng-app="Item" ng-controller="Itemcontroller">
+<head>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script>
+        angular.module('Item', [])
+            .controller('Itemcontroller', function($scope, $http) {
+                $("#textToSpeech").hide();
+                $scope.getDetails = function() {
+                    $http.get('https://api.edamam.com/api/nutrition-data?app_id=8a198ada&app_key=ea70aaff5e80616e47bde5e18f2b71b1&ingr=1%20large%20potato/'+$scope.Item+'.json').success(function(data)
+                    {
+                        console.log(data);
+                        $scope.Calories = "Calories : " + data.calories ;
+                        $scope.TotalWeight = "Total Weight : " + data.totalWeight;
+                        var url = "http://stream.watsonplatform.net/text-to-speech/api/v1/synthesize?username=0bfb9e81-900b-425e-9078-f73959c63e4c&password=XIMZyRhsodn3&text="+$scope.Item;
+                        $("#textToSpeech").attr('onclick',"location.href="+"'"+url+"'");
+                        $("#textToSpeech").show();
+                    })
+                }
+            });
+    </script>
+    <style>
+        body  {
+
+
+            background-image: url("http://res.freestockphotos.biz/pictures/5/5667-close-up-of-mixed-fruits-and-vegetables-pv.jpg");
+            background-color: #cccccc;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .nutrition {
+            background-color:skyblue;
+            height: 150px;
+            width: 250px;
+            border: 5px black solid;
+            padding: 2em;
+            margin: 40px;
+            text-align: justify;
+        }
+
+    </style>
+</head>
+<body>
+<br><br>
+<h1 align="center">CALORIE COUNTER</h1>
+<br><br>
+<div align = "center">
+    <b><label>Enter the Food Item:</label></b>
+    <input type="text" ng-model="Item" placeholder="Enter Food Item">
+    <br><br>
+    <button  id="btn" ng-click="getDetails ()">GetDetails</button>
+    <div  class="nutrition" align="center">
+        <p class="Calories" ng-bind="Calories"></p>
+        <p class="TotalWeight" ng-bind="TotalWeight"></p>
+    </div>
+    <input type="button" style="display: none" id="textToSpeech" value="Play"></input>
+</div>
+</body>
+</html>
