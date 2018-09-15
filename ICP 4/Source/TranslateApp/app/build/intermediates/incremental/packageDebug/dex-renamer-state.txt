@@ -1,0 +1,7 @@
+#Sat Sep 15 00:09:25 CDT 2018
+base.0=C\:\\Users\\Dell\\Desktop\\TranslateApp\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run_259b8d85ac8aa9052c4d55071381e42a2d0c1fbd
+renamed.1=classes2.dex
+renamed.0=classes.dex
+file.1=C\:\\Users\\Dell\\Desktop\\TranslateApp\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run-bootstrap_8b9d82a315ea8f439be02335edea96731f86c77d\\classes.dex
+base.1=C\:\\Users\\Dell\\Desktop\\TranslateApp\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run-bootstrap_8b9d82a315ea8f439be02335edea96731f86c77d
+file.0=C\:\\Users\\Dell\\Desktop\\TranslateApp\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run_259b8d85ac8aa9052c4d55071381e42a2d0c1fbd\\classes.dex
