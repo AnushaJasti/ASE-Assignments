@@ -1,7 +1,0 @@
-{
-  "name": "ICP7",
-  "integrations": {
-    "cordova": {}
-  },
-  "type": "ionic-angular"
-}
