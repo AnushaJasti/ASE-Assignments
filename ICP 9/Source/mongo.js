@@ -19,14 +19,19 @@ app.post("/register",function (req ,res) {
             res.end();
         }
         var db= client.db("icp9");
-        insertDocument(db, req.body, function() {
-            res.write("Successfully inserted");
-            res.end();
-        });
+        db.collection('ase').insertOne(req.body,function(err, result){
+            if(err)
+            {
+                //console.log(err);
+                res.write("Registration Failed, Error While Registering");
+                res.end();
+            }
+
+        })
     });
 }
 );
-var insertDocument= function(db, data, callback){
+/*var insertDocument= function(db, data, callback){
 db.collection('ase').insertOne(data,function(err, result){
     if(err)
         {
@@ -35,7 +40,7 @@ db.collection('ase').insertOne(data,function(err, result){
         }
         
 })
-}
+}*/
 app.get("/list", function(req,res){
    MongoClient.connect(url,function(err,client){
        if(err){
